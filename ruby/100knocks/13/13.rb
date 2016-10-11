@@ -27,12 +27,16 @@
 # 山形県  鶴岡
 # 愛知県  名古屋
 
-text = ""
-prefectures = Array.new(File.readlines('../12/col1.txt'))
-cities = Array.new(File.readlines('../12/col2.txt'))
+def join_file_contents file1_path, file2_path
+  text = ""
+  prefectures = Array.new(File.readlines(file1_path))
+  cities = Array.new(File.readlines(file2_path))
 
-prefectures.each_with_index do |prefecture, index|
-  text += "#{prefecture.chomp}\t#{cities[index].chomp}\n"
+  prefectures.each_with_index do |prefecture, index|
+    text += "#{prefecture.chomp}\t#{cities[index].chomp}\n"
+  end
+
+  File.write('file3.txt', text)
 end
 
-File.write('fils3.txt', text)
+join_file_contents '../12/col1.txt', '../12/col2.txt'
