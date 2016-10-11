@@ -13,7 +13,12 @@
 #    1 高知県
 #    1 愛媛県
 #    1 大阪府
-prefectures = File.readlines('./hightemp.txt').map{|line| line.split[0]}
-puts prefectures.uniq.each_with_object([]) { |prefecture,array|
-  array << [prefecture, prefectures.count(prefecture)]
-}.sort_by{|prefecture| prefecture[1]}.reverse.to_h
+
+def order_row_by_frequent_word_in_column file_path, column_number
+  prefectures = File.readlines(file_path).map{|line| line.split[column_number-1]}
+  prefectures.uniq.each_with_object([]) { |prefecture,array|
+    array << [prefecture, prefectures.count(prefecture)]
+  }.sort_by{|prefecture| prefecture[1]}.reverse.to_h
+end
+
+puts order_row_by_frequent_word_in_column './hightemp.txt', 1
