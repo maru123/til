@@ -14,4 +14,7 @@
 # 高知県
 # 和歌山県
 
-puts IO.read('./hightemp.txt').each_line.map{|line| line.split(/\t/)[0]}.sort.uniq
+def uniq_contents file_path
+  IO.read(file_path).each_line.map{|line| line.split(/\t/)[0]}.sort.uniq
+end
+puts uniq_contents './hightemp.txt'
