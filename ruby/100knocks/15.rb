@@ -13,4 +13,7 @@
 # 山形県  鶴岡    39.9    1978-08-03
 # 愛知県  名古屋  39.9    1942-08-02
 
-puts File.readlines('./hightemp.txt')[-10..-1]
+def show_last_n_row file_path, number
+  File.readlines(file_path)[-number..-1]
+end
+puts show_last_n_row './hightemp.txt', 6
