@@ -6,4 +6,8 @@
 # ➜  11 git:(master) ✗ cat ./hightemp.txt | tr '\t' ' '
 # 同じ結果になった
 
-File.write('./hightemp.txt', File.read('./hightemp.txt').gsub(/\t/, ' '))
+def replace_tab_with_spece file_path
+  File.read(file_path).gsub(/\t/, ' ')
+end
+
+puts replace_tab_with_spece './hightemp.txt'
