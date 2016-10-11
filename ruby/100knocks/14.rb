@@ -13,4 +13,7 @@
 # 埼玉県  越谷    40.4    2007-08-16
 # 群馬県  館林    40.3    2007-08-16
 
-puts File.readlines('./hightemp.txt')[0..9]
+def show_first_n_row file_path, number
+  File.readlines(file_path)[0..number-1]
+end
+puts show_first_n_row './hightemp.txt', 5
