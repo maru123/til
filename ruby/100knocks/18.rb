@@ -27,4 +27,7 @@
 # 岐阜県  多治見  40.9    2007-08-16
 # 高知県  江川崎  41      2013-08-12
 
-puts File.readlines('./hightemp.txt').sort_by{|line| line.split[2]}
+def reverse_order_by_column_number file_path, number
+  File.readlines(file_path).sort_by{|line| line.split[number-1]}
+end
+puts reverse_order_by_column_number './hightemp.txt', 3
